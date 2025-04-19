@@ -1,0 +1,84 @@
+# Local .terraform directories
+**/.terraform/*
+.terraform/*
+.terraform.lock.hcl
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all .tfvars files, which are likely to contain sensitive data
+*.tfvars
+*.tfvars.json
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include override files you do wish to add to version control using negated pattern
+# !example_override.tf
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor temporary files
+*.bak
+*.tmp
+*~
+\#*\#
+.\#*
+
+# Azure CLI files
+azure/
+
+# Azure DevOps artifact directories
+Bin/
+Obj/
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Build output
+bin/
+dist/
+
+# Node.js dependencies
+node_modules/
+
+# Python cache and virtualenv
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+venv/
+ENV/
+
+# Go workspace
+/bin/
