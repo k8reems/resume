@@ -2,51 +2,11 @@ trigger:
   - main
 
 variables:
-  terraformVersion: "1.5.5"
-  azureServiceConnection: "your-azure-service-connection-name"
+  azureServiceConnection: "k8reemsAZConnection"
   resourceGroupName: "resume-rg"
-  storageAccountName: "resumeweb$(Build.BuildId)"
+  storageAccountName: "resumeweba492c275"
 
 stages:
-  - stage: Provision
-    displayName: "Provision Infrastructure"
-    jobs:
-      - job: Terraform
-        displayName: "Terraform Apply"
-        steps:
-          - task: TerraformInstaller@0
-            displayName: "Install Terraform"
-            inputs:
-              terraformVersion: $(terraformVersion)
-
-          - task: TerraformCLI@0
-            displayName: "Terraform Init"
-            inputs:
-              command: "init"
-              workingDirectory: "$(System.DefaultWorkingDirectory)"
-              backendType: "azurerm"
-              backendServiceArm: $(azureServiceConnection)
-              backendAzureRmResourceGroupName: $(resourceGroupName)
-              backendAzureRmStorageAccountName: "tfstate$(Build.BuildId)"
-              backendAzureRmContainerName: "tfstate"
-              backendAzureRmKey: "terraform.tfstate"
-
-          - task: TerraformCLI@0
-            displayName: "Terraform Plan"
-            inputs:
-              command: "plan"
-              workingDirectory: "$(System.DefaultWorkingDirectory)"
-              commandOptions: "-out=tfplan"
-              environmentServiceName: $(azureServiceConnection)
-
-          - task: TerraformCLI@0
-            displayName: "Terraform Apply"
-            inputs:
-              command: "apply"
-              workingDirectory: "$(System.DefaultWorkingDirectory)"
-              commandOptions: "tfplan"
-              environmentServiceName: $(azureServiceConnection)
-
   - stage: Deploy
     displayName: "Deploy Resume"
     dependsOn: Provision

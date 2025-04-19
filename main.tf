@@ -22,4 +22,10 @@ resource "azurerm_storage_account" "resume" {
 
 output "website_url" {
   value = azurerm_storage_account.resume.primary_web_endpoint
+  description = "The URL of the hosted static website"
+}
+
+output "storage_account_name" {
+  value = azurerm_storage_account.resume.name
+  description = "The name of the storage account hosting the resume"
 }
