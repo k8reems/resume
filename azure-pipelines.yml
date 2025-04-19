@@ -2,7 +2,7 @@ trigger:
   - main
 
 variables:
-  azureServiceConnection: "your-azure-service-connection-name"
+  azureServiceConnection: "k8reemsAZConnection"
   resourceGroupName: "resume-rg"
   storageAccountName: "resumeweba492c275"
 
