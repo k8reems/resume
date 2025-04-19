@@ -9,7 +9,8 @@ variables:
 stages:
   - stage: Deploy
     displayName: "Deploy Resume"
-    dependsOn: Provision
+    pool:
+      vmImage: 'ubuntu-latest'  # or 'windows-latest' if preferred
     jobs:
       - job: Deploy
         steps:
